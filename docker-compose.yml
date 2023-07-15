@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mysql_db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: HMSDB
+      MYSQL_ROOT_PASSWORD: hms
+  hms_app:
+    image: hms
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql_db
