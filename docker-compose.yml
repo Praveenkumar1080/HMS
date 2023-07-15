@@ -2,12 +2,14 @@ version: '3'
 services:
   mysql_db:
     image: mysql:8.0
+    container_name: mysql-container
     restart: always
     environment:
       MYSQL_DATABASE: HMSDB
       MYSQL_ROOT_PASSWORD: hms
   hms_app:
-    image: hms
+    image: hms-app
+    container_name: hms-container
     ports:
       - 8080:8080
     depends_on:
